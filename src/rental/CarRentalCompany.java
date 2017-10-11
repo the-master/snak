@@ -181,12 +181,6 @@ public class CarRentalCompany implements ICarRentalCompany{
 		return out.toString();
 	}
 
-//	@Override
-//	public String Foo() {
-//		// TODO Auto-generated method stub
-//		return "bar";
-//	}
-
 	@Override
 	public int getNumberOfReservations(String carTypeName) throws RemoteException {
 		int reservationCount = 0;
@@ -197,7 +191,9 @@ public class CarRentalCompany implements ICarRentalCompany{
 		}
 		return reservationCount;
 	}
-
+	
+	// The execution time of this method can be reduced by saving a map that maps clientnames to a list of reservations.
+	// Now the execution time is |Cars| x |Reservations| and it can be O(1) for a hash lookup
 	@Override
 	public List<Reservation> getReservationsByRenter(String clientName) throws RemoteException {
 		ArrayList<Reservation> result = new ArrayList<>();
@@ -213,7 +209,6 @@ public class CarRentalCompany implements ICarRentalCompany{
 
 	@Override
 	public Quote createQuote(String clientName, ReservationConstraints reservationConstraints) throws RemoteException, ReservationException {
-		// TODO Auto-generated method stub
 		return createQuote(reservationConstraints, clientName);
 	}
 	

@@ -24,9 +24,9 @@ public class Client extends AbstractTestBooking {
 		
 		// An example reservation scenario on car rental company 'Hertz' would be...
 		Client client = new Client(Config.simpleTrips, carRentalCompanyName);
-		Registry registry =LocateRegistry.getRegistry(Config.PORT);
+		// Maybe the registry lookup should be in the Client constructor
+		Registry registry = LocateRegistry.getRegistry(Config.PORT);
 		client.company=(ICarRentalCompany)registry.lookup(Config.RMIname);
-//		System.out.println(client.company.Foo());
 		client.run();
 		
 	}
@@ -37,8 +37,6 @@ public class Client extends AbstractTestBooking {
 	
 	public Client(String scriptFile, String carRentalCompanyName) {
 		super(scriptFile);
-		// TODO Auto-generated method stub
-//		throw new UnsupportedOperationException("TODO");
 	}
 	
 	/**ICarRentalCompany
@@ -55,8 +53,7 @@ public class Client extends AbstractTestBooking {
 	@Override
 	protected void checkForAvailableCarTypes(Date start, Date end) throws Exception {
 		for(CarType type:this.company.getAvailableCarTypes(start, end))
-			System.out.println(type.getName());//availableCars(start,end);
-//		throw new UnsupportedOperationException("TODO");
+			System.out.println(type.getName());
 	}
 
 	/**
@@ -80,8 +77,7 @@ public class Client extends AbstractTestBooking {
 	@Override
 	protected Quote createQuote(String clientName, Date start, Date end,
 			String carType, String region) throws Exception {
-		// TODO Auto-generated method stub
-		return company.createQuote(clientName, new ReservationConstraints(start, end, carType, region));//throw new UnsupportedOperationException("TODO");
+		return company.createQuote(clientName, new ReservationConstraints(start, end, carType, region));
 	}
 
 	/**
@@ -96,9 +92,7 @@ public class Client extends AbstractTestBooking {
 	 */
 	@Override
 	protected Reservation confirmQuote(Quote quote) throws Exception {
-		// TODO Auto-generated method stub
 		return company.confirmQuote(quote);
-//		throw new UnsupportedOperationException("TODO");
 	}
 	
 	/**
