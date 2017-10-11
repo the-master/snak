@@ -187,9 +187,14 @@ public class CarRentalCompany implements ICarRentalCompany{
 	}
 
 	@Override
-	public int getNumberOfReservations(String carType) throws RemoteException {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getNumberOfReservations(String carTypeName) throws RemoteException {
+		int reservationCount = 0;
+		for (Car car : cars) {
+			if (car.getType().equals(this.getCarType(carTypeName))) {
+				reservationCount += car.getReservationCount();
+			}
+		}
+		return reservationCount;
 	}
 
 	@Override
