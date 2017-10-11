@@ -19,6 +19,6 @@ public interface ICarRentalCompany extends Remote {
 	// wrap it in a remote object like ICarRentalCompany
 	public Reservation confirmQuote(Quote quote) throws RemoteException, ReservationException;
 
-	public Quote createQuote(String clientName, Date start, Date end, String carType, String region)throws RemoteException, ReservationException;
+	public Quote createQuote(String clientName, ReservationConstraints reservationConstraints)throws RemoteException, ReservationException;
 
 }

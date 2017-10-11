@@ -1,10 +1,15 @@
 package rental;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ReservationConstraints {
+public class ReservationConstraints implements Serializable {
     
-    private Date startDate;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2224121120212635918L;
+	private Date startDate;
     private Date endDate;
     private String carType;
     private String region;
@@ -97,7 +102,5 @@ public class ReservationConstraints {
             return String.format("Reservation constraints [from %s until %s, for car type '%s' in region '%s']", 
                     getStartDate(), getEndDate(), getCarType(), getRegion());
 	}
-
-
 
 }
