@@ -181,11 +181,11 @@ public class CarRentalCompany implements ICarRentalCompany{
 		return out.toString();
 	}
 
-	@Override
-	public String Foo() {
-		// TODO Auto-generated method stub
-		return "bar";
-	}
+//	@Override
+//	public String Foo() {
+//		// TODO Auto-generated method stub
+//		return "bar";
+//	}
 
 	@Override
 	public int getNumberOfReservations(String carTypeName) throws RemoteException {

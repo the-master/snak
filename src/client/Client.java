@@ -25,7 +25,7 @@ public class Client extends AbstractTestBooking {
 		Client client = new Client(Config.simpleTrips, carRentalCompanyName);
 		Registry registry =LocateRegistry.getRegistry(Config.PORT);
 		client.company=(ICarRentalCompany)registry.lookup(Config.RMIname);
-		System.out.println(client.company.Foo());
+//		System.out.println(client.company.Foo());
 		client.run();
 		
 	}

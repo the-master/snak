@@ -26,7 +26,6 @@ public class RentalServer {
 		
 		ICarRentalCompany stub = (ICarRentalCompany)UnicastRemoteObject.exportObject(c, 0);
 		LocateRegistry.getRegistry().rebind(Config.RMIname, stub	);
-		System.out.println("bind succesfull"+Config.RMIname);
 	}
 
 	public static CrcData loadData(String datafile)
