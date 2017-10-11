@@ -144,7 +144,7 @@ public class CarRentalCompany implements ICarRentalCompany{
 		return rentalPricePerDay * Math.ceil((end.getTime() - start.getTime())
 						/ (1000 * 60 * 60 * 24D));
 	}
-
+	
 	public Reservation confirmQuote(Quote quote) throws ReservationException {
 		logger.log(Level.INFO, "<{0}> Reservation of {1}", new Object[]{name, quote.toString()});
 		List<Car> availableCars = getAvailableCars(quote.getCarType(), quote.getStartDate(), quote.getEndDate());
