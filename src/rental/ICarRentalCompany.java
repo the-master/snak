@@ -17,4 +17,6 @@ public interface ICarRentalCompany extends Remote{
 
 	public Reservation confirmQuote(Quote quote)throws RemoteException, ReservationException;
 
+	public Quote createQuote(String clientName, Date start, Date end)throws RemoteException;
+
 }

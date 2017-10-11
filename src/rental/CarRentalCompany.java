@@ -197,5 +197,11 @@ public class CarRentalCompany implements ICarRentalCompany{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Quote createQuote(String clientName, Date start, Date end) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
