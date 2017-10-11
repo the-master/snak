@@ -80,7 +80,7 @@ public class Client extends AbstractTestBooking {
 	protected Quote createQuote(String clientName, Date start, Date end,
 			String carType, String region) throws Exception {
 		// TODO Auto-generated method stub
-		return null;//throw new UnsupportedOperationException("TODO");
+		return company.createQuote(clientName,start,end,carType,region);//throw new UnsupportedOperationException("TODO");
 	}
 
 	/**
