@@ -1,5 +1,6 @@
 package rental;
 
+import java.rmi.RemoteException;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -183,6 +184,18 @@ public class CarRentalCompany implements ICarRentalCompany{
 	public String Foo() {
 		// TODO Auto-generated method stub
 		return "bar";
+	}
+
+	@Override
+	public int getNumberOfReservations(String carType) throws RemoteException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<Reservation> getReservationsByRenter(String clientName) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

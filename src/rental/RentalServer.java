@@ -1,6 +1,7 @@
 package rental;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.rmi.AlreadyBoundException;
@@ -18,12 +19,14 @@ public class RentalServer {
 	
 	public static void main(String[] args) throws ReservationException,
 			NumberFormatException, IOException, AlreadyBoundException {
-		CrcData data  = loadData("res/hertz.csv");
+//		File f = new File("res/hertz.csv");
+		CrcData data  = loadData(Config.hertz);
 		System.setSecurityManager(null);
 		ICarRentalCompany c=new CarRentalCompany(data.name, data.regions, data.cars);
 		
 		ICarRentalCompany stub = (ICarRentalCompany)UnicastRemoteObject.exportObject(c, 0);
 		LocateRegistry.getRegistry().rebind(Config.RMIname, stub	);
+		System.out.println("bind succesfull"+Config.RMIname);
 	}
 
 	public static CrcData loadData(String datafile)

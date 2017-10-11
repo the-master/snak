@@ -22,11 +22,11 @@ public class Client extends AbstractTestBooking {
 		String carRentalCompanyName = "Hertz";
 		
 		// An example reservation scenario on car rental company 'Hertz' would be...
-		Client client = new Client("simpleTrips", carRentalCompanyName);
-		client.run();
+		Client client = new Client(Config.simpleTrips, carRentalCompanyName);
 		Registry registry =LocateRegistry.getRegistry(Config.PORT);
-		client.company=(CarRentalCompany)registry.lookup("crc");
+		client.company=(ICarRentalCompany)registry.lookup(Config.RMIname);
 		System.out.println(client.company.Foo());
+		client.run();
 		
 	}
 	
@@ -37,7 +37,7 @@ public class Client extends AbstractTestBooking {
 	public Client(String scriptFile, String carRentalCompanyName) {
 		super(scriptFile);
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("TODO");
+//		throw new UnsupportedOperationException("TODO");
 	}
 	
 	/**ICarRentalCompany
@@ -80,7 +80,7 @@ public class Client extends AbstractTestBooking {
 	protected Quote createQuote(String clientName, Date start, Date end,
 			String carType, String region) throws Exception {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("TODO");
+		return null;//throw new UnsupportedOperationException("TODO");
 	}
 
 	/**
@@ -96,7 +96,8 @@ public class Client extends AbstractTestBooking {
 	@Override
 	protected Reservation confirmQuote(Quote quote) throws Exception {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("TODO");
+		return company.confirmQuote(quote);
+//		throw new UnsupportedOperationException("TODO");
 	}
 	
 	/**
@@ -112,7 +113,8 @@ public class Client extends AbstractTestBooking {
 	@Override
 	protected List<Reservation> getReservationsByRenter(String clientName) throws Exception {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("TODO");
+		return company.getReservationsByRenter(clientName);
+//		throw new UnsupportedOperationException("TODO");
 	}
 
 	/**
@@ -127,7 +129,8 @@ public class Client extends AbstractTestBooking {
 	 */
 	@Override
 	protected int getNumberOfReservationsForCarType(String carType) throws Exception {
+		return company.getNumberOfReservations(carType);
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("TODO");
+//		throw new UnsupportedOperationException("TODO");
 	}
 }
