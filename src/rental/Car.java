@@ -64,4 +64,8 @@ public class Car {
     public int getReservationCount() {
     	return this.reservations.size();
     }
+    
+    public List<Reservation> getReservations() {
+    	return new ArrayList<Reservation>(this.reservations);
+    }
 }
