@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Apple.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Textures2.png" type="Texture" id=2]
+
+[node name="Apple" type="Node2D"]
+editor/display_folded = true
+position = Vector2( 144, 112 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 96, 0, 32, 32 )
+
